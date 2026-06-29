@@ -1,0 +1,72 @@
+source:
+  url: "https://www.youtube.com/watch?v=FLKBo-Wr-A4"
+  start: "00:28"
+  end: "00:52"
+  format: "mp4"
+
+video:
+  output_dir: "video/output"
+  preserve_fps: true
+
+segmentation:
+  model: "sam2"
+  fallback: "rembg"
+  output_dir: "segmentation/output"
+  outputs:
+    - foreground_mask
+    - alpha_matte
+    - silhouette
+
+pose:
+  model: "rtmpose"
+  fallback_order:
+    - "rtmpose"
+    - "openpose"
+    - "mediapipe"
+  output_dir: "pose/output"
+  interpolate_missing: true
+  temporal_smoothing: true
+
+motion:
+  output_dir: "motion/output"
+  smoothing:
+    method: "savgol"
+    window: 5
+    polyorder: 3
+  preserve:
+    - acceleration
+    - deceleration
+    - pauses
+    - phrasing
+    - weight_shifts
+
+render:
+  width: 1080
+  height: 1080
+  fps: 12   # ~2x slow from the 23.976 source
+  background: [0, 0, 0]
+  output_dir: "render/output"
+  halftone:
+    dot_color: [255, 255, 255]
+    min_radius: 1.0
+    max_radius: 6.0
+    grid_spacing: 8
+    brightness_response: true
+    curvature_response: true
+    motion_trails: true
+    trail_decay: 0.55
+    settling_frames: 3
+    psychedelic: true        # now means: restrained oxblood palette with slow drift
+    hue_cycle_period: 577    # one full subtle drift across the whole sequence
+    grain_sigma: 6.0         # film grain amplitude (0 to disable)
+    background_center_rgb: [8, 5, 4]     # very dim warm-neutral darkness
+    background_falloff: 0.75             # tighter falloff — corners stay black
+
+export:
+  output_dir: "export/output"
+  formats:
+    - mp4
+    - png_sequence
+    - pose_json
+    - silhouette_masks
+    - config

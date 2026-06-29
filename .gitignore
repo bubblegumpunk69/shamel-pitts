@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Large generated artifacts — keep source code, not outputs
+video/output/
+segmentation/output/
+pose/output/
+motion/output/
+render/output/
+export/output/

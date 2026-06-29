@@ -1,0 +1,27 @@
+# Stage 1 — Video ingestion
+yt-dlp
+ffmpeg-python
+
+# Stage 2 — Segmentation
+rembg[gpu]
+onnxruntime
+
+# Stage 3 — Pose estimation
+mmpose
+mmdet
+mmengine
+mmcv
+
+# Stage 4 — Motion processing
+numpy
+scipy
+
+# Stage 5 — Rendering
+opencv-python
+pycairo
+Pillow
+
+# Pipeline
+pyyaml
+tqdm
+click
