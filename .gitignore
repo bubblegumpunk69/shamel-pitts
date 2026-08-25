@@ -10,3 +10,7 @@ pose/output/
 motion/output/
 render/output/
 export/output/
+
+# Local tooling / unrelated scratch content
+.claude/
+outputs/

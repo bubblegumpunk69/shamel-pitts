@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Shamel Pitts — artist, choreographer, founder of TRIBE. 2024 MacArthur Fellow, Doris Duke Artist, 2020 Guggenheim Fellow." />
+<title>Shamel Pitts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=95" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__identity">
+    <a href="#intro" class="nav__brand" data-view-link="intro" aria-label="Shamel Pitts — home">Shamel Pitts</a>
+    <a href="#tribe" class="nav__brand nav__brand--tribe" data-view-link="tribe">TRIBE</a>
+  </div>
+  <div class="nav__row">
+    <nav class="nav__links" aria-label="Primary"><!-- rendered by router.js --></nav>
+    <select class="nav__select" aria-label="Primary section"><!-- rendered by router.js --></select>
+    <button class="theme-toggle" type="button" aria-label="Switch to day mode" aria-pressed="false">
+      <span class="theme-toggle__icon" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<main class="stage">
+
+  <!-- INTRO (default landing — wave field is the entire experience) -->
+  <section class="view" data-view="intro">
+    <div class="intro__motion-shell" aria-hidden="true">
+      <video
+        class="intro__motion"
+        src="assets/oxblood_clean.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      ></video>
+    </div>
+    <div class="intro__dancer-pair" aria-hidden="true">
+      <canvas id="dancer-dots" class="intro__dots intro__dots--primary"></canvas>
+      <canvas id="dancer-dots-mirror" class="intro__dots intro__dots--mirror"></canvas>
+    </div>
+    <p class="intro__signature" aria-hidden="true">SHAMEL PITTS</p>
+  </section>
+
+  <!-- WORKS (two series links) -->
+  <section class="view" data-view="works">
+    <div class="series-choice">
+      <canvas class="works-backdrop" aria-hidden="true"></canvas>
+      <a href="#red-series" data-view-link="red-series" class="series-tile">
+        <h2 class="series-tile__title">The <span class="series-tile__accent">Red</span> Series</h2>
+      </a>
+      <span class="series-divider" aria-hidden="true"></span>
+      <a href="#black-trilogy" data-view-link="black-trilogy" class="series-tile">
+        <h2 class="series-tile__title">The <span class="series-tile__black">Black</span> Trilogy</h2>
+      </a>
+    </div>
+  </section>
+
+  <!-- RED SERIES (sub-view) -->
+  <section class="view" data-view="red-series">
+    <a href="#works" data-view-link="works" class="view__back">← Back to Works</a>
+    <h2 class="view__label">The Red Series</h2>
+
+    <article class="work">
+      <h3 class="work__title">Marks of <em>RED</em></h3>
+      <p class="work__credits">World premiere · Walker Art Center, Minneapolis</p>
+      <p class="work__line">An Afrofuturistic meditation on the womb space — divining the effect that memory has on our experiences, senses, bodies, and imaginative possibilities. A new architecture of light, surface, and rite.</p>
+    </article>
+
+    <article class="work">
+      <h3 class="work__title">Touch of <em>RED</em></h3>
+      <p class="work__credits">Premiere · Jacob's Pillow, Doris Duke Theatre</p>
+      <p class="work__line">A boxing ring becomes a stage. Two bodies — weighted with masculinity and grief — find rebirth inside its rope. Forged in the sweaty heat of physical closeness, in souls laid bare in a fraught arena illuminated by scarlet light.</p>
+    </article>
+  </section>
+
+  <!-- BLACK TRILOGY (sub-view) -->
+  <section class="view" data-view="black-trilogy">
+    <a href="#works" data-view-link="works" class="view__back">← Back to Works</a>
+    <h2 class="view__label">The Black Trilogy</h2>
+
+    <article class="work">
+      <h3 class="work__title">Black Hole <span class="work__sub">— Trilogy and Triathlon</span></h3>
+      <p class="work__credits">Concluding chapter</p>
+      <p class="work__line">Three bodies. One gravity. <em>Black Hole</em> closes the trilogy as a collective reckoning — a triathlon of endurance, of cosmology, of arrival. <em>"Apparitions of haunting beauty."</em> — Fjord Review.</p>
+    </article>
+
+    <article class="work">
+      <h3 class="work__title">Black Velvet <span class="work__sub">— Architectures and Archetypes</span></h3>
+      <p class="work__credits">New York premiere · with Mirelle Martins</p>
+      <p class="work__line">A duet of sculpted geometries between Pitts and Brazilian artist Mirelle Martins. <em>"A haunting duet."</em> — The New York Times.</p>
+    </article>
+
+    <article class="work">
+      <h3 class="work__title">Black Box <span class="work__sub">— Little Black Book of RED</span></h3>
+      <p class="work__credits">Solo · the beginning of the cycle</p>
+      <p class="work__line">A solo of spoken word, evocative lighting, and video. A personal, poetic narrative on the search for identity and survival amidst impermanence.</p>
+    </article>
+  </section>
+
+  <!-- BIO -->
+  <section class="view" data-view="bio">
+    <div class="bio">
+      <figure class="bio__portrait">
+        <img class="bio__portrait-source" src="assets/pitts_2024_hi-res-download_4.jpg" alt="Portrait of Shamel Pitts" />
+      </figure>
+
+      <div class="bio__content">
+        <p class="bio__lead">
+          Shamel Pitts is a Brooklyn-born artist, choreographer, and performer — founder and
+          artistic director of <a href="#tribe" data-view-link="tribe">TRIBE</a>, an
+          Afrofuturistic multidisciplinary arts collective. He trained at LaGuardia High School,
+          Alvin Ailey, and The Juilliard School, performed seven years with Batsheva Dance Company under Ohad Naharin, and is
+          the originator of the Black Trilogy and the ongoing Red Series.
+        </p>
+
+        <dl class="bio__honors">
+          <div>
+            <dt>2026</dt>
+            <dd>United States Artists Fellow</dd>
+          </div>
+          <div>
+            <dt>2024</dt>
+            <dd>MacArthur Fellow &nbsp;·&nbsp; Doris Duke Artist &nbsp;·&nbsp; Bessie&nbsp;Award, Outstanding Choreographer</dd>
+          </div>
+          <div>
+            <dt>2020</dt>
+            <dd>Guggenheim Fellow</dd>
+          </div>
+          <div>
+            <dt>2018</dt>
+            <dd>Princess Grace Award</dd>
+          </div>
+          <div>
+            <dt>Faculty</dt>
+            <dd>Juilliard &nbsp;·&nbsp; Princeton &nbsp;·&nbsp; NYU &nbsp;·&nbsp; Wesleyan</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIBE -->
+  <section class="view" data-view="tribe">
+    <div class="tribe">
+      <p class="tribe__mission">
+        To cultivate a space of discovery and a platform for artists — most specifically
+        <em>artists of color</em> — with huge inspiration from the Afrofuturism movement.
+      </p>
+
+      <div class="tribe__grid">
+        <div class="tribe__about">
+          <p>
+            A Brooklyn-based 501(c)(3) multidisciplinary arts collective founded in December 2019 by
+            MacArthur Fellow Shamel Pitts. TRIBE makes multisensory works in which
+            movement, choreography, lighting, video mapping, poetry, cinematography, costume, and music
+            move as one body with the performers.
+          </p>
+          <p>
+            <a class="tribe__site" href="https://www.itsatribe.org/" target="_blank" rel="noopener">Visit TRIBE's website →</a>
+          </p>
+        </div>
+
+        <ul class="tribe__team">
+          <li><span class="tribe__name">Shamel Pitts</span><span class="tribe__role">Founder, Artistic Director</span></li>
+          <li><span class="tribe__name">Mirelle Martins</span><span class="tribe__role">Creative Director, Founding Artist</span></li>
+          <li><span class="tribe__name">Brittany Wilson</span><span class="tribe__role">Managing Director</span></li>
+          <li><span class="tribe__name">Eric Umble</span><span class="tribe__role">Development Director</span></li>
+          <li><span class="tribe__name">E Katrina Lewis</span><span class="tribe__role">Artistic Administrator</span></li>
+          <li><span class="tribe__name">Sarai Frazier</span><span class="tribe__role">Artistic Production Manager · Lighting Designer</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="view" data-view="schedule">
+    <ol class="schedule">
+      <li>
+        <a href="https://www.newvictory.org/events/2627-live-performance-new-victory-dance-program-a" target="_blank" rel="noopener" class="schedule__row">
+          <span class="schedule__date">July 15, 2026</span>
+          <span class="schedule__title">Black Hole · excerpt</span>
+          <span class="schedule__venue">New Victory Theater · New York ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://ums.org/performance/shamel-pitts-tribe-marks-of-red/" target="_blank" rel="noopener" class="schedule__row">
+          <span class="schedule__date">October 3–4, 2026</span>
+          <span class="schedule__title">Marks of RED</span>
+          <span class="schedule__venue">UMS Power Center · Ann Arbor ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://cap.ucla.edu/event/shamel-pitts-tribe" target="_blank" rel="noopener" class="schedule__row">
+          <span class="schedule__date">February 27, 2027</span>
+          <span class="schedule__title">Marks of RED</span>
+          <span class="schedule__venue">UCLA Center for the Art of Performance, Royce Hall · Los Angeles ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://itsatribe.org/events/" target="_blank" rel="noopener" class="schedule__row">
+          <span class="schedule__date">Full calendar</span>
+          <span class="schedule__title">All performances &amp; workshops</span>
+          <span class="schedule__venue">itsatribe.org/events ↗</span>
+        </a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- PRESS -->
+  <section class="view" data-view="press">
+    <ul class="press">
+      <li>
+        <a href="https://www.northrop.umn.edu/learn-engage/blog/shamel-pitts-touch-red-knockout-power-vulnerability" target="_blank" rel="noopener">
+          <blockquote>It set all my nerves on fire, still burning as I recall the experience.</blockquote>
+          <cite>Northrop, 2025 <span>· Touch of RED</span></cite>
+        </a>
+      </li>
+      <li>
+        <a href="https://lampoonmagazine.com/tribe-shamel-pitts-touch-of-red-doris-duke-theatre-boxing-masculinity-afrofuturism/" target="_blank" rel="noopener">
+          <blockquote>Sets the ring on fire.</blockquote>
+          <cite>Lampoon Magazine, 2025 <span>· Touch of RED</span></cite>
+        </a>
+      </li>
+      <li>
+        <a href="https://fjordreview.com/blogs/all/black-hole-trilogy-triathlon" target="_blank" rel="noopener">
+          <blockquote>Apparitions of haunting beauty.</blockquote>
+          <cite>Fjord Review, 2022 <span>· Black Hole</span></cite>
+        </a>
+      </li>
+      <li>
+        <a href="https://artsfuse.org/287083/dance-review-shamel-pitts-black-hole-moving-into-a-space-beyond-our-own/" target="_blank" rel="noopener">
+          <blockquote>Moving into a space beyond our own.</blockquote>
+          <cite>The Arts Fuse, 2022 <span>· Black Hole</span></cite>
+        </a>
+      </li>
+      <li>
+        <a href="https://shamelpitts.com/blackvelvet/" target="_blank" rel="noopener">
+          <blockquote>A haunting duet.</blockquote>
+          <cite>The New York Times, 2019 <span>· Black Velvet</span></cite>
+        </a>
+      </li>
+    </ul>
+    <p class="press__more">
+      <a href="#press-archive" data-view-link="press-archive">Full press archive →</a>
+    </p>
+  </section>
+
+  <!-- PRESS ARCHIVE (sub-view) -->
+  <section class="view" data-view="press-archive">
+    <a href="#press" data-view-link="press" class="view__back">← Back to Press</a>
+    <h2 class="view__label">Press Archive</h2>
+
+    <ol class="archive">
+      <li>
+        <a href="https://bessies.org/the-bessies-announce-recipients-of-2024-2025-new-york-dance-and-performance-awards/" target="_blank" rel="noopener">
+          <span class="archive__date">2026</span>
+          <span class="archive__source">The Bessie Awards</span>
+          <span class="archive__title">Recipients of the 2024 &amp; 2025 New York Dance and Performance Awards ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://arts.princeton.edu/news/2026/01/lewis-center-faculty-fellows-and-guest-artists-win-2024-2025-bessie-awards/" target="_blank" rel="noopener">
+          <span class="archive__date">2026</span>
+          <span class="archive__source">Lewis Center for the Arts, Princeton</span>
+          <span class="archive__title">Faculty, Fellows, and Guest Artists Win 2024 &amp; 2025 Bessie Awards ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.walkerart.org/press-releases/shamel-pitts-tribe-presents-an-afrofuturist-meditation-on-black-embodiment-in-marks-of-red/" target="_blank" rel="noopener">
+          <span class="archive__date">2026</span>
+          <span class="archive__source">Walker Art Center</span>
+          <span class="archive__title">An Afrofuturist Meditation on Black Embodiment in Marks of RED ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://danceartjournal.com/2026/03/25/shamel-pitts-on-new-work-marks-of-red/" target="_blank" rel="noopener">
+          <span class="archive__date">2026</span>
+          <span class="archive__source">Dance Art Journal</span>
+          <span class="archive__title">Shamel Pitts on new work Marks of RED ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.northrop.umn.edu/learn-engage/blog/power-red-shamel-pitts-and-tribe-partnership-walker-and-northrop-2026" target="_blank" rel="noopener">
+          <span class="archive__date">2026</span>
+          <span class="archive__source">Northrop</span>
+          <span class="archive__title">The Power of RED: TRIBE's partnership with the Walker and Northrop ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://lampoonmagazine.com/tribe-shamel-pitts-touch-of-red-doris-duke-theatre-boxing-masculinity-afrofuturism/" target="_blank" rel="noopener">
+          <span class="archive__date">2025</span>
+          <span class="archive__source">Lampoon Magazine</span>
+          <span class="archive__title">Shamel Pitts sets the ring on fire — Touch of RED at Jacob's Pillow ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.northrop.umn.edu/learn-engage/blog/shamel-pitts-touch-red-knockout-power-vulnerability" target="_blank" rel="noopener">
+          <span class="archive__date">2025</span>
+          <span class="archive__source">Northrop</span>
+          <span class="archive__title">Touch of RED — the knockout power of vulnerability ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.northrop.umn.edu/events/performance-preview-shamel-pitts-choreographer-2025" target="_blank" rel="noopener">
+          <span class="archive__date">2025</span>
+          <span class="archive__source">Northrop · Kristen Brogden, in conversation</span>
+          <span class="archive__title">Performance Preview with Shamel Pitts ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.macfound.org/fellows/class-of-2024/shamel-pitts" target="_blank" rel="noopener">
+          <span class="archive__date">2024</span>
+          <span class="archive__source">MacArthur Foundation</span>
+          <span class="archive__title">2024 MacArthur Fellow — Shamel Pitts ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://tntribune.com/oz-arts-presents-internationally-acclaimed-choreographer-shamel-pitts-and-his-company-tribe-in-their-award-winning-production-black-hole-trilogy-and-triathlon/" target="_blank" rel="noopener">
+          <span class="archive__date">2024</span>
+          <span class="archive__source">The Tennessee Tribune</span>
+          <span class="archive__title">OZ Arts presents Shamel Pitts and TRIBE in Black Hole ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.northrop.umn.edu/learn-engage/blog/featured-facts-shamel-pitts" target="_blank" rel="noopener">
+          <span class="archive__date">2023</span>
+          <span class="archive__source">Northrop</span>
+          <span class="archive__title">From Brooklyn to Black Holes: Five Facts about Shamel Pitts ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://fjordreview.com/blogs/all/black-hole-trilogy-triathlon" target="_blank" rel="noopener">
+          <span class="archive__date">2022</span>
+          <span class="archive__source">Fjord Review · Karen Greenspan</span>
+          <span class="archive__title">Beauty in Blackness — Black Hole ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://artsfuse.org/287083/dance-review-shamel-pitts-black-hole-moving-into-a-space-beyond-our-own/" target="_blank" rel="noopener">
+          <span class="archive__date">2022</span>
+          <span class="archive__source">The Arts Fuse</span>
+          <span class="archive__title">Dance Review — Black Hole, moving into a space beyond our own ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.artsatl.org/shamel-pitts-on-the-u-s-premiere-of-black-hole-at-historic-rhodes-theatre/" target="_blank" rel="noopener">
+          <span class="archive__date">2022</span>
+          <span class="archive__source">ARTS ATL</span>
+          <span class="archive__title">Q&amp;A: Shamel Pitts on the U.S. premiere of Black Hole ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://fjordreview.com/blogs/all/shamel-pitts-part-of-the-tribe" target="_blank" rel="noopener">
+          <span class="archive__date">2020</span>
+          <span class="archive__source">Fjord Review</span>
+          <span class="archive__title">Shamel Pitts, Part of the TRIBE ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://shamelpitts.com/shamel-pitts-on-coming-home/" target="_blank" rel="noopener">
+          <span class="archive__date">2019</span>
+          <span class="archive__source">The New York Times</span>
+          <span class="archive__title">Shamel Pitts on Coming Home — leaving Batsheva for Brooklyn ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://shamelpitts.com/blackvelvet/" target="_blank" rel="noopener">
+          <span class="archive__date">2019</span>
+          <span class="archive__source">The New York Times</span>
+          <span class="archive__title">"A haunting duet" — review of Black Velvet ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://interviewenlair.com/shamel-pitts-black-velvet/" target="_blank" rel="noopener">
+          <span class="archive__date">2019</span>
+          <span class="archive__source">Interview en l'air</span>
+          <span class="archive__title">Shamel Pitts — Black Velvet ↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://en.wikipedia.org/wiki/Shamel_Pitts" target="_blank" rel="noopener">
+          <span class="archive__date">Wiki</span>
+          <span class="archive__source">Wikipedia</span>
+          <span class="archive__title">Shamel Pitts ↗</span>
+        </a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- SUPPORT -->
+  <section class="view" data-view="support">
+    <div class="support">
+      <div class="support__credits">
+        <div>
+          <h3 class="support__label">Patrons</h3>
+          <ul class="support__list">
+            <li>Ohad Naharin</li>
+            <li>Marcel Przymusinski</li>
+            <li>Sasha Kipka</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="support__label">Institutions</h3>
+          <ul class="support__list">
+            <li>New York Foundation for the Arts</li>
+            <li>MacArthur Foundation</li>
+            <li>Princess Grace Foundation</li>
+            <li>Foundation for Contemporary Arts</li>
+            <li>Trust for Mutual Understanding</li>
+            <li>Batsheva Dance Company</li>
+            <li>DOCK 11 — EDEN Studios</li>
+            <li>gloATL — Tanz Farm</li>
+            <li>PearlArts Studios</li>
+            <li>Derida Dance Center</li>
+          </ul>
+        </div>
+        <p class="support__more">
+          <a href="#supporters" data-view-link="supporters">See all supporters →</a>
+        </p>
+      </div>
+
+      <div class="support__lead">
+        <p class="support__hero">The work travels because you carry it.</p>
+        <p>
+          Shamel Pitts &amp; TRIBE produce original multidisciplinary works with artists from across
+          the diaspora. Contributions support new commissions, education, and the touring of existing
+          work.
+        </p>
+        <p><a class="cta" href="mailto:info@itsatribe.org?subject=Supporting%20TRIBE">Become a patron →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORTERS (sub-view of support) -->
+  <section class="view" data-view="supporters">
+    <a href="#support" data-view-link="support" class="view__back">← Back to Thanks</a>
+    <h2 class="view__label">Acknowledgments</h2>
+
+    <div class="ack">
+      <section class="ack__block">
+        <h3 class="ack__label">Patrons</h3>
+        <ul class="ack__patrons">
+          <li>Ohad Naharin</li>
+          <li>Marcel Przymusinski</li>
+          <li>Sasha Kipka</li>
+        </ul>
+      </section>
+
+      <section class="ack__block">
+        <h3 class="ack__label">Institutions</h3>
+        <ul class="ack__institutions">
+          <li>New York Foundation for the Arts</li>
+          <li>MacArthur Foundation</li>
+          <li>Princess Grace Foundation</li>
+          <li>Foundation for Contemporary Arts</li>
+          <li>Trust for Mutual Understanding</li>
+          <li>Batsheva Dance Company</li>
+          <li>DOCK 11 — EDEN Studios</li>
+          <li>gloATL — Tanz Farm</li>
+          <li>PearlArts Studios</li>
+          <li>Derida Dance Center</li>
+        </ul>
+      </section>
+
+      <section class="ack__block">
+        <h3 class="ack__label">Supporters</h3>
+        <ul class="ack__supporters">
+          <li>Adam Potrykus</li><li>Alexander Andison</li><li>Alexander Jolicouer</li><li>Alexandra Wells</li><li>Alicia Pobega</li><li>Aline Paz</li><li>Alvin Glover</li><li>Amos Avnon</li><li>Andre Bezerra</li><li>Anna Long</li><li>Anna Reyes</li><li>Annika Sheaf</li><li>Anya Pev</li><li>Ariel Angel</li><li>Armando Araujo</li><li>Ashley Menestrina</li>
+          <li>Doug</li>
+          <li>E Katrina Lewis</li><li>Eira Glover</li><li>Emil Kang</li><li>Erez Berger</li><li>Erick Rosa</li><li>Ezio de Castro</li>
+          <li>Fabio Barbato</li><li>Felipe Fleury</li><li>Fernanda Loredo</li>
+          <li>Gabriel Gontijo</li><li>Gai Behar</li><li>Galit Reich</li><li>Gerard X. Reyes</li><li>Graziela Bastos</li><li>Guilherme Moreira</li><li>Gustavo de Lacerda</li><li>Guy Shomroni</li>
+          <li>Hai Zoaretz</li><li>Helena Brandi</li><li>Helene Ducos Bourgeois</li><li>Hsin-Yi Hsiang</li><li>Humberto Cunha</li>
+          <li>Ian Robinson</li><li>Ines Bogea</li><li>Iris Ruttenberg</li><li>Irit Neeman</li><li>Itai Zwecker</li><li>Itamar Stern</li><li>Ivan Franco</li><li>Iyar Elezra</li>
+          <li>Jada Williams</li><li>Jaja Taylor</li><li>James Viveiros</li><li>Jhonny Mathews</li><li>Jin Young Won</li><li>Joana Franco</li><li>Joana Hotte</li><li>Joao Sprovieri</li><li>Jorge Brivilati</li><li>Joshua Antoine</li><li>Joy Marie Thompson</li><li>Juliana Froelich</li>
+          <li>Keren Lurie Pardes</li><li>Kevin Petite</li><li>Kobie Flashman</li>
+          <li>Lars-Uwe Luther</li><li>Laura Tarrish</li><li>Leo Lerus</li><li>Leonardo Assad</li><li>Lia Bezerra</li><li>Liliane Grammont</li><li>Litty Lev Cohen</li><li>Liya Geldman</li><li>Louis Corrigan</li><li>Luiz Roberto</li><li>Lygia Young</li>
+          <li>Margie Gillis</li><li>Mariana Gatti</li><li>Marion Talan</li><li>Mario Rabelo</li><li>Markelly Martins</li><li>Matan David</li><li>Max Makowski</li><li>Memory Keeper</li><li>Michele McCoy</li><li>Michelle Brugal</li><li>Michelle Mathesius</li><li>Miki &amp; Etty Kenny</li><li>Mirna Nogueira</li>
+          <li>Nabil Carone</li><li>Nana Yaa Poku</li><li>Nat Irvin</li><li>Nev Schulman</li><li>Nicole Beharie</li><li>Nicole Krauss</li><li>Nigel Campbell</li><li>Noa Paran</li><li>Noya Neeman</li>
+          <li>Olivia Cho Lund</li>
+          <li>Peggy Baker</li><li>Penny Frank</li>
+          <li>Rachel Osborne</li><li>Raoni Leao</li><li>Raphael Franzini</li><li>Raquel Miranda</li><li>Ravid Kahalani</li><li>Ravid Sevil</li><li>Rick Smith</li><li>Risa Steinberg</li><li>Robin Mathes</li><li>Rodolfo Borges</li><li>Rodrigo Borges</li><li>Roger Prince</li><li>Ronan Sato</li><li>Roslyn Anderson</li>
+          <li>Saar Harari</li><li>Salomao Diniz</li><li>Sean Howe</li><li>Sebastian Abarbanel</li><li>Sharon Booth</li><li>Sharon Eyal</li><li>Sidra Bell</li><li>Stav Struz</li><li>Stephanie Amurao</li><li>Stephen Weinstock</li><li>Susana Yamaguchi</li>
+          <li>Tanner Ryan</li><li>Taryn Kaschock Russell</li><li>Thiago Correia</li><li>Thomas Lee Irvin</li><li>Tomer Heymann</li><li>Tushrik Fredericks</li>
+          <li>Ulysses Owens, Jr.</li><li>Umi Akiyoshi</li>
+          <li>Valaria Murria</li><li>Valerie Jerome</li><li>Vanesa Garcia</li><li>Vitor Reis</li><li>Vitor Veras</li>
+          <li>Wojtek Baczynski</li>
+          <li>Yuasha Sorzano</li><li>Yuri Zhukov</li><li>Yuval Moyal</li>
+          <li>Zanthea Taylor</li>
+        </ul>
+      </section>
+
+      <p class="ack__note">
+        With gratitude — and with the awareness that any list is partial. To be added or corrected:
+        <a href="mailto:info@itsatribe.org?subject=Acknowledgments">info@itsatribe.org</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view" data-view="contact">
+    <div class="contact-frame">
+      <p class="contact__hero">Let's begin something.</p>
+
+      <ul class="contact">
+        <li>
+          <p class="contact__label">General</p>
+          <a class="contact__line" href="mailto:info@itsatribe.org">info@itsatribe.org</a>
+        </li>
+        <li>
+          <p class="contact__label">Booking &amp; press</p>
+          <a class="contact__line" href="mailto:booking@itsatribe.org">booking@itsatribe.org</a>
+        </li>
+        <li>
+          <p class="contact__label">Teaching</p>
+          <a class="contact__line" href="mailto:teach@itsatribe.org">teach@itsatribe.org</a>
+        </li>
+      </ul>
+
+      <div class="contact__meta">
+        <div class="contact__social" aria-label="Instagram profiles">
+          <a class="contact__social-link" href="https://www.instagram.com/itsatribe" target="_blank" rel="noopener">@itsatribe</a>
+          <a class="contact__social-link" href="https://www.instagram.com/shamel_pitts" target="_blank" rel="noopener">@shamel_pitts</a>
+        </div>
+        <p class="contact__location">Brooklyn, NY</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© <span id="year"></span> &nbsp;·&nbsp; Shamel Pitts · TRIBE</p>
+</footer>
+
+<script src="tiles.js?v=10" defer></script>
+<script src="router.js?v=17" defer></script>
+    <script src="dot-dancer.js?v=31" defer></script>
+</body>
+</html>

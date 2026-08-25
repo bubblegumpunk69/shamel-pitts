@@ -48,6 +48,27 @@ def build_atmospheric_gradient(width: int, height: int, center_color: tuple, fal
     return weight[..., None] * bgr
 
 
+def render_pixel_underlayer(silhouette: np.ndarray, canvas_w: int, canvas_h: int,
+                            block_size: int = 28, opacity: float = 0.30,
+                            blur_radius: int = 9) -> np.ndarray:
+    """Chunky-pixel white silhouette for layering beneath the halftone dots.
+
+    Downsamples the silhouette to block-size resolution then upsamples with
+    nearest-neighbor (creating clean blocks), then softens with a gaussian so
+    the blocks feel like atmosphere rather than digital pixelation.
+    """
+    sil_resized = cv2.resize(silhouette, (canvas_w, canvas_h), interpolation=cv2.INTER_NEAREST)
+    sw = max(1, canvas_w // block_size)
+    sh = max(1, canvas_h // block_size)
+    small = cv2.resize(sil_resized, (sw, sh), interpolation=cv2.INTER_AREA)
+    blocks = cv2.resize(small, (canvas_w, canvas_h), interpolation=cv2.INTER_NEAREST)
+    if blur_radius > 1:
+        k = blur_radius if blur_radius % 2 == 1 else blur_radius + 1
+        blocks = cv2.GaussianBlur(blocks, (k, k), 0)
+    layer = (blocks.astype(np.float32) * opacity)
+    return np.stack([layer, layer, layer], axis=-1)
+
+
 def build_grid(width: int, height: int, spacing: int) -> np.ndarray:
     """Hexagonal offset grid of (x, y) integer points."""
     points = []
@@ -232,6 +253,16 @@ def render_sequence(
         sil, fg = crop_to_dancer(sil, fg, target_size=canvas_w, pad_ratio=2.2)
 
         composed = np.zeros((canvas_h, canvas_w, 3), dtype=np.float32)
+        # Optional pixel underlayer (chunky white blocks beneath the dots).
+        pixel_cfg = h_cfg.get("pixel_underlayer")
+        if pixel_cfg and pixel_cfg.get("enabled", False):
+            under = render_pixel_underlayer(
+                sil, canvas_w, canvas_h,
+                block_size=pixel_cfg.get("block_size", 28),
+                opacity=pixel_cfg.get("opacity", 0.30),
+                blur_radius=pixel_cfg.get("blur_radius", 9),
+            )
+            composed = composed + under
         for layer in layers:
             layer_frame = render_frame(
                 grid=grid,
